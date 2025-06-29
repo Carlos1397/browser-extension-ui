@@ -54,14 +54,12 @@ function createCard(data) {
     const header = document.createElement('div');
     header.className = 'card-header';
 
-    // Imagen (izquierda)
     const logo = document.createElement('img');
     logo.src = data.logo;
     logo.alt = `${data.name} logo`;
     logo.className = 'card-logo';
     header.appendChild(logo);
 
-    // Bloque de título + descripción (derecha)
     const meta = document.createElement('div');
     meta.className = 'card-meta';
 
@@ -92,8 +90,13 @@ function createCard(data) {
         removeBtn.classList.toggle('inactive');
     });
 
+    // Etiqueta accesible
     const label = document.createElement('label');
     label.className = 'switch';
+
+    const hiddenText = document.createElement('span');
+    hiddenText.className = 'visually-hidden';
+    hiddenText.textContent = `Activar extensión ${data.name}`;
 
     const toggle = document.createElement('input');
     toggle.type = 'checkbox';
@@ -103,6 +106,7 @@ function createCard(data) {
     const slider = document.createElement('span');
     slider.className = 'slider';
 
+    label.appendChild(hiddenText); // ¡Esto soluciona la advertencia!
     label.appendChild(toggle);
     label.appendChild(slider);
 
