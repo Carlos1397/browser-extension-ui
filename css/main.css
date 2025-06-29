@@ -251,7 +251,7 @@ body.modo-oscuro .remove-btn.inactive {
 }
 
 .card {
-    width: 400px;
+    flex: 1 1 calc((100% - 2 * 1.5rem) / 3);
     background: var(--neutral-0);
     padding: 1.5rem;
     border-radius: 12px;
@@ -384,8 +384,14 @@ body.modo-oscuro .remove-btn.inactive {
         width: 100%;
     }
 
+    .cards-container {
+        padding-inline: 1rem;
+        justify-content: flex-start;
+    }
+
     .card {
-        width: 100%;
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 
 }
